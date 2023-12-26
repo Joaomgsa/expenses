@@ -21,8 +21,8 @@ class MyHomePage extends StatelessWidget {
 
   final _transactions =[
       Transaction(
-        id: 't1', title: "Tenis de Corrida", value: 310.79, date: DateTime.now())
-        ,Transaction(
+        id: 't1', title: "Tenis de Corrida", value: 310.79, date: DateTime.now()),
+        Transaction(
         id: 't2', title: "Conta de luz", value: 210.30, date: DateTime.now())
   ];
 
@@ -31,19 +31,26 @@ class MyHomePage extends StatelessWidget {
     return Scaffold
     ( appBar: AppBar(
       title: const Text('Despesas Pessoais'),
-    ),body:  const Column(
+    ),body:  Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
     children: <Widget>[
-      SizedBox(
+      const SizedBox(
         width: double.infinity,
         child: Card(
           elevation: 5,
           color: Colors.blue,
           child: Text('Grafico'))
       ),
-      Card(child: Text('Lista de transações'),)]),
-
+      Column(
+        children: _transactions.map((tr){
+            return Card(
+              child: Text(tr.title),
+            );
+        }).toList(),
+      )
+      ],
+      ),
     );
   }
 }
