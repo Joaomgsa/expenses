@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ExpensesApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ExpensesApp extends StatelessWidget {
+  const ExpensesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,10 @@ class MyHomePage extends StatelessWidget {
     return Scaffold
     ( appBar: AppBar(
       title: const Text('Despesas Pessoais'),
-    ),body:  const Column(children: <Widget>[
+    ),body:  const Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: <Widget>[
       SizedBox(
         width: double.infinity,
         child: Card(
